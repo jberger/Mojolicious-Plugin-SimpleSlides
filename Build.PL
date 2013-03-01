@@ -17,6 +17,15 @@ my $build = Module::Build->new(
     'Mojolicious' => '3.0',
     'File::ShareDir' => 0,
   },
+  meta_merge => {
+    resources  => {
+      repository => "http://github.com/jberger/Mojolicious-Plugin-SimpleSlides",
+      bugtracker => "http://github.com/jberger/Mojolicious-Plugin-SimpleSlides/issues",
+    },
+    no_index => {
+      file      => [ 'README.pod' ],
+    },
+  },
 );
 
 $build->create_build_script;

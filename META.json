@@ -13,6 +13,11 @@
       "version" : "2"
    },
    "name" : "Mojolicious-Plugin-SimpleSlides",
+   "no_index" : {
+      "file" : [
+         "README.pod"
+      ]
+   },
    "prereqs" : {
       "configure" : {
          "requires" : {
@@ -34,9 +39,15 @@
    },
    "release_status" : "stable",
    "resources" : {
+      "bugtracker" : {
+         "web" : "http://github.com/jberger/Mojolicious-Plugin-SimpleSlides/issues"
+      },
       "license" : [
          "http://dev.perl.org/licenses/"
-      ]
+      ],
+      "repository" : {
+         "url" : "http://github.com/jberger/Mojolicious-Plugin-SimpleSlides"
+      }
    },
    "version" : "0.01"
 }
