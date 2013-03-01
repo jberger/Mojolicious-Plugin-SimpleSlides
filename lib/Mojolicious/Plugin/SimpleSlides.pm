@@ -5,6 +5,10 @@ use Mojo::Base 'Mojolicious::Plugin';
 our $VERSION = 0.01;
 $VERSION = eval $VERSION;
 
+use File::Spec;
+use File::Basename ();
+use File::ShareDir ();
+
 has 'column_align' => 'top';
 
 has 'column_template'  => 'simple_slides_column';
