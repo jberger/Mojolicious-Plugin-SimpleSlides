@@ -11,6 +11,14 @@ $t->get_ok('/1')
   ->status_is(200)
   ->text_is( '#main' => 'Hello World' );
 
+my $dom = $t->tx->res->dom;
+my @nav = $dom->find('.nav a')->map(sub{$_->{href}})->each;
+is $nav[0], '/', 'prev is /';
+is $nav[1], '/', 'next is /';
+
+$t->get_ok('/0')
+  ->status_is(404);
+
 $t->get_ok('/2')
   ->status_is(404);
 
