@@ -1,4 +1,5 @@
 Build.PL
+Changes
 lib/Mojolicious/Plugin/SimpleSlides.pm
 lib/Mojolicious/Plugin/SimpleSlides/public/mousetrap.min.js
 lib/Mojolicious/Plugin/SimpleSlides/public/simple_slides.css
