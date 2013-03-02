@@ -9,7 +9,9 @@ my $t = Test::Mojo->new;
 
 $t->get_ok('/1')
   ->status_is(200)
-  ->text_is( '#main' => 'Hello World' );
+  ->text_is( '#main' => 'Hello World' )
+  ->text_is( title => 'Title test' )
+  ->text_is( h1 => 'Title test' );
 
 my $dom = $t->tx->res->dom;
 my @nav = $dom->find('.nav a')->map(sub{$_->{href}})->each;
@@ -27,5 +29,7 @@ done_testing;
 __DATA__
 
 @@ 1.html.ep
+
+% title 'Title test';
 
 Hello World
