@@ -9,6 +9,8 @@ use File::Spec;
 use File::Basename ();
 use File::ShareDir ();
 
+has 'base_href';
+
 has 'column_align' => 'top';
 
 has 'column_template'  => 'simple_slides_column';
@@ -138,6 +140,9 @@ __DATA__
 <html>
   <head>
     <title><%= title %></title>
+    % if ( my $href = simple_slides->base_href ) {
+      %= tag base => href => $href;
+    % }
     % if ( __PACKAGE__->can('ppi') ) {
       %= stylesheet '/ppi.css';
       %= javascript '/ppi.js';
