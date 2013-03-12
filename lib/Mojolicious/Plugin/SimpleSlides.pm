@@ -141,7 +141,7 @@ __DATA__
   <head>
     <title><%= title %></title>
     % if ( my $href = simple_slides->base_href ) {
-      %= tag base => href => $href;
+      %= tag base => href => $href
     % }
     % if ( __PACKAGE__->can('ppi') ) {
       %= stylesheet '/ppi.css';
