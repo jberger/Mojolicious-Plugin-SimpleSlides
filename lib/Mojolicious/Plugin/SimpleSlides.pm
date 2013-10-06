@@ -22,6 +22,8 @@ has [qw/first_slide last_slide/] => 1;
 
 has 'layout' => 'simple_slides';
 
+has 'slides';
+
 has 'static_path' => sub {
   my $local = File::Spec->catdir(File::Basename::dirname(__FILE__), 'SimpleSlides', 'public');
   return $local if -d $local;
@@ -34,6 +36,19 @@ has 'static_path' => sub {
 
 sub register {
   my ($plugin, $app, $conf) = @_;
+
+  if (my $slides = $conf->{slides}) {
+    $plugin->slides($slides);
+    $plugin->last_slide(scalar @$slides);
+  }
+
+  if (defined $conf->{first_slide}) {
+    $plugin->first_slide($conf->{first_slide});
+  }
+
+  if (defined $conf->{last_slide}) {
+    $plugin->last_slide($conf->{last_slide});
+  }
 
   push @{ $app->renderer->classes }, __PACKAGE__;
   push @{ $app->static->paths     }, $plugin->static_path;
@@ -67,6 +82,12 @@ sub register {
   return $plugin;
 }
 
+sub template_for_slide {
+  my ($self, $num) = @_;
+  return "$num" unless my $slides = $self->slides;
+  return $slides->[$num-1];
+}
+
 sub prev_slide {
   my ($self, $current) = @_;
   return $current == $self->first_slide ? $current : $current - 1;
@@ -81,8 +102,10 @@ sub next_slide {
 
 sub _action {
   my $c = shift;
-  my $slide = $c->stash( 'slide' );
-  $c->layout( $c->simple_slides->layout );
+  my $plugin = $c->simple_slides;
+  my $slide = $plugin->template_for_slide($c->stash( 'slide' )) 
+    or return $c->render_not_found;
+  $c->layout( $plugin->layout );
   $c->render( $slide ) || $c->render_not_found;
 }
 
