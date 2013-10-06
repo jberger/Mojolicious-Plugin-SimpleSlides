@@ -44,15 +44,13 @@ sub register {
   $app->helper( columns => \&_columns );
 
   $app->helper( prev_slide => sub {
-    my $self = shift;
-    my $slide = $self->stash('slide');
-    $slide == $self->simple_slides->first_slide ? $slide : $slide - 1;
+    my $c = shift;
+    return $c->simple_slides->prev_slide($c->stash('slide'));
   });
 
   $app->helper( next_slide => sub {
-    my $self = shift;
-    my $slide = $self->stash('slide');
-    $slide == $self->simple_slides->last_slide ? $slide : $slide + 1;
+    my $c = shift;
+    return $c->simple_slides->next_slide($c->stash('slide'));
   });
 
   $app->helper( code_line => sub {
@@ -67,6 +65,16 @@ sub register {
   );
 
   return $plugin;
+}
+
+sub prev_slide {
+  my ($self, $current) = @_;
+  return $current == $self->first_slide ? $current : $current - 1;
+}
+
+sub next_slide {
+  my ($self, $current) = @_;
+  return $current == $self->last_slide ? $current : $current + 1;
 }
 
 # controller action callback
