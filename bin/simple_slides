@@ -1,0 +1,15 @@
+#!perl
+
+use Mojolicious::Lite;
+
+plugin 'Config' => {
+  file => shift || 'slides.conf',
+  default => {
+    slides => undef,
+  },
+};
+
+plugin 'SimpleSlides';
+
+app->start;
+
