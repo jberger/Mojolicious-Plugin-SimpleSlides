@@ -104,9 +104,9 @@ sub _action {
   my $c = shift;
   my $plugin = $c->simple_slides;
   my $slide = $plugin->template_for_slide($c->stash( 'slide' )) 
-    or return $c->render_not_found;
+    or return $c->reply->not_found;
   $c->layout( $plugin->layout );
-  $c->render( $slide ) || $c->render_not_found;
+  $c->render( $slide ) || $c->reply->not_found;
 }
 
 # helpers
