@@ -1,0 +1,24 @@
+NAME
+    Mojolicious::Plugin::SimpleSlides - Create a presentation using
+    Mojolicious
+
+DESCRIPTION
+    This module has been extracted from a talk gave at Chicago.pm. I have
+    rushed it out before the talk, it has almost no tests or documentation.
+    For the moment its use is at your own risk.
+
+SEE ALSO
+    Mojolicious, Mojolicious::Plugin::PPI
+
+SOURCE REPOSITORY
+    <http://github.com/jberger/Mojolicious-Plugin-SimpleSlides>
+
+AUTHOR
+    Joel Berger, <joel.a.berger@gmail.com>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2013 by Joel Berger
+
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
