@@ -1,7 +1,8 @@
-Revision history for Perl extension Mojolicious::Plugin::SimpleSlides.
+0.03  Not Released
+  - fix bad test
 
-0.02 2016-03-30
- - update for Mojolicious 6.0 compat
+0.02  2016-03-30
+  - update for Mojolicious 6.0 compat
 
-0.01 2013-05-17
- - initial release
+0.01  2013-05-17
+  - initial release
