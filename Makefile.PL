@@ -2,8 +2,8 @@
 use ExtUtils::MakeMaker;
 WriteMakefile(
   NAME => 'Mojolicious::Plugin::SimpleSlides',
-  AUTHOR => 'Joel Berger <joel.a.berger@gmail.com>',
-  LICENSE => 'perl',
+  AUTHOR => 'Stefan Adams <stefan@borgia.com>',
+  LICENSE => 'artistic_2',
   ABSTRACT_FROM => 'lib/Mojolicious/Plugin/SimpleSlides.pm',
   VERSION_FROM => 'lib/Mojolicious/Plugin/SimpleSlides.pm',
   EXE_FILES => [qw(  )],
@@ -19,9 +19,9 @@ WriteMakefile(
 }
 ,
   PREREQ_PM => {
-  'perl' => '5.010',
+  'File::ShareDir' => '0',
   'Mojolicious' => '6.0',
-  'File::ShareDir' => 0
+  'perl' => '5.010'
 }
 ,
   test => {TESTS => (-e 'META.yml' ? 't/*.t' : 't/*.t xt/*.t')},
