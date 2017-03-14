@@ -214,11 +214,19 @@ __END__
 
 =head1 NAME
 
-Mojolicious::Plugin::SimpleSlides - Create a presentation using Mojolicious
+Mojolicious::Plugin::SimpleSlides - DEPRECATED Create a presentation using Mojolicious
 
 =head1 DESCRIPTION
 
 This module has been extracted from a talk gave at Chicago.pm. I have rushed it out before the talk, it has almost no tests or documentation. For the moment its use is at your own risk.
+
+Indeed it never really got better than this, that's why:
+
+=head1 DEPRECATED
+
+This module is now officially deprecated.
+I will give it no further effort.
+If someone would like to adopt it, please contact me.
 
 =head1 SEE ALSO
 
