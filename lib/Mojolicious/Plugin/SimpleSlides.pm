@@ -150,6 +150,43 @@ sub _columns {
 
 1;
 
+=head1 NAME
+
+Mojolicious::Plugin::SimpleSlides - DEPRECATED Create a presentation using Mojolicious
+
+=head1 DESCRIPTION
+
+This module has been extracted from a talk gave at Chicago.pm. I have rushed it out before the talk, it has almost no tests or documentation. For the moment its use is at your own risk.
+
+Indeed it never really got better than this, that's why:
+
+=head1 DEPRECATED
+
+This module is now officially deprecated.
+I will give it no further effort.
+If someone would like to adopt it, please contact me.
+
+=head1 SEE ALSO
+
+L<Mojolicious>, L<Mojolicious::Plugin::PPI>
+
+=head1 SOURCE REPOSITORY
+
+L<http://github.com/jberger/Mojolicious-Plugin-SimpleSlides>
+
+=head1 AUTHOR
+
+Joel Berger, E<lt>joel.a.berger@gmail.comE<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2013 by Joel Berger
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
+
 __DATA__
 
 @@ simple_slides_column.html.ep
@@ -212,39 +249,3 @@ __DATA__
 
 __END__
 
-=head1 NAME
-
-Mojolicious::Plugin::SimpleSlides - DEPRECATED Create a presentation using Mojolicious
-
-=head1 DESCRIPTION
-
-This module has been extracted from a talk gave at Chicago.pm. I have rushed it out before the talk, it has almost no tests or documentation. For the moment its use is at your own risk.
-
-Indeed it never really got better than this, that's why:
-
-=head1 DEPRECATED
-
-This module is now officially deprecated.
-I will give it no further effort.
-If someone would like to adopt it, please contact me.
-
-=head1 SEE ALSO
-
-L<Mojolicious>, L<Mojolicious::Plugin::PPI>
-
-=head1 SOURCE REPOSITORY
-
-L<http://github.com/jberger/Mojolicious-Plugin-SimpleSlides>
-
-=head1 AUTHOR
-
-Joel Berger, E<lt>joel.a.berger@gmail.comE<gt>
-
-=head1 COPYRIGHT AND LICENSE
-
-Copyright (C) 2013 by Joel Berger
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
-=cut
