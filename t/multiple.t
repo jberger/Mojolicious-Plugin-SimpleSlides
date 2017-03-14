@@ -18,7 +18,7 @@ sub gen_subtest {
   return sub {
     $t->get_ok($page)
       ->status_is(200)
-      ->text_is( '#main' => $text );
+      ->text_like( '#main' => qr/$text/ );
 
     my $dom = $t->tx->res->dom;
     my @nav = $dom->find('.nav a')->map(sub{$_->{href}})->each;

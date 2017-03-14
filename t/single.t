@@ -9,7 +9,7 @@ my $t = Test::Mojo->new;
 
 $t->get_ok('/1')
   ->status_is(200)
-  ->text_is( '#main' => 'Hello World' )
+  ->text_like( '#main' => qr/Hello World/ )
   ->text_is( title => 'Title test' )
   ->text_is( h1 => 'Title test' );
 
