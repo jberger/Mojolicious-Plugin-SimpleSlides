@@ -72,7 +72,7 @@ sub register {
     shift->tag('pre' => class => 'code-line' => @_);
   });
 
-  $app->routes->any( 
+  $app->routes->any(
     '/:slide',
     { slide => $plugin->first_slide },
     [ slide => qr/\b\d+\b/ ],
@@ -103,7 +103,7 @@ sub next_slide {
 sub _action {
   my $c = shift;
   my $plugin = $c->simple_slides;
-  my $slide = $plugin->template_for_slide($c->stash( 'slide' )) 
+  my $slide = $plugin->template_for_slide($c->stash( 'slide' ))
     or return $c->reply->not_found;
   $c->layout( $plugin->layout );
   $c->render( $slide ) || $c->reply->not_found;
@@ -111,7 +111,7 @@ sub _action {
 
 # helpers
 
-sub _column { 
+sub _column {
   my $c = shift;
   my $plugin = $c->simple_slides;
   my $content = pop || return;
@@ -128,21 +128,21 @@ sub _column {
   if ( my $align = delete $args{align} || $plugin->column_align ) {
     $style .= "vertical-align: $align;";
   }
- 
-  return $c->render( 
-    partial => 1, 
+
+  return $c->render(
+    partial => 1,
     'columns.style' => $style,
-    'columns.column' => $content, 
+    'columns.column' => $content,
     template => $plugin->column_template,
   );
 }
 
-sub _columns { 
+sub _columns {
   my $c = shift;
   return unless @_;
   my $content = shift->();
-  return $c->render( 
-    partial => 1, 
+  return $c->render(
+    partial => 1,
     'columns.content' => $content,
     template => $c->simple_slides->columns_template,
   );
@@ -191,7 +191,7 @@ __DATA__
 
 @@ simple_slides_column.html.ep
 % my @tag = qw/div class column/;
-% if ( my $style = stash 'columns.style' ) { push @tag, style => $style } 
+% if ( my $style = stash 'columns.style' ) { push @tag, style => $style }
 %= tag @tag, begin
   %= stash 'columns.column'
 % end
