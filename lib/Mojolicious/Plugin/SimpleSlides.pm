@@ -2,12 +2,11 @@ package Mojolicious::Plugin::SimpleSlides;
 
 use Mojo::Base 'Mojolicious::Plugin';
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 $VERSION = eval $VERSION;
 
 use File::Spec;
-use File::Basename ();
-use File::ShareDir ();
+use File::Share ();
 
 has 'base_href';
 
@@ -25,13 +24,10 @@ has 'layout' => 'simple_slides';
 has 'slides';
 
 has 'static_path' => sub {
-  my $local = File::Spec->catdir(File::Basename::dirname(__FILE__), 'SimpleSlides', 'public');
-  return $local if -d $local;
-
-  my $share = File::ShareDir::dist_dir('Mojolicious-Plugin-SimpleSlides');
+  my $share = eval { File::Spec->catdir(File::Share::dist_dir('Mojolicious-Plugin-SimpleSlides'), 'public') };
   return $share if -d $share;
 
-  warn "Cannot find static content for Mojolicious::Plugin::SimpleSlides, (checked $local and $share). The bundled javascript and css files will not work correctly.\n";
+  warn "Cannot find static content for Mojolicious::Plugin::SimpleSlides, (checked $share). The bundled javascript and css files will not work correctly.\n";
 };
 
 sub register {
